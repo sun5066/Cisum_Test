@@ -1,0 +1,21 @@
+"C:\Program Files\Java\jdk1.8.0_261\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2020.2\lib\idea_rt.jar=63471:C:\Program Files\JetBrains\IntelliJ IDEA 2020.2\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_261\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\rt.jar;C:\bizWork\workSpace\TeamProject\Cisum_Test\target\classes;C:\Users\202007291712\.m2\repository\com\googlecode\json-simple\json-simple\1.1.1\json-simple-1.1.1.jar;C:\Users\202007291712\.m2\repository\junit\junit\4.10\junit-4.10.jar;C:\Users\202007291712\.m2\repository\org\hamcrest\hamcrest-core\1.1\hamcrest-core-1.1.jar;C:\Users\202007291712\.m2\repository\org\jsoup\jsoup\1.13.1\jsoup-1.13.1.jar" com.like.sun.Main
+title	: 이하이 (LEE HI) - 홀로 (HOLO) Official Music Video (ENG/CHN)
+url		: https://www.youtube.com/watch?v=VdeK_VsG9U0
+videoID	: VdeK_VsG9U0
+image	: https://i.ytimg.com/vi/VdeK_VsG9U0/maxresdefault.jpg
+{  "kind": "youtube#videoListResponse",  "etag": "8fxeQu2zphRSTqvEzHtNBskug5g",  "items": [    {      "kind": "youtube#video",      "etag": "CB8HAkTU4b9QXBgBQn7dpZtWHWs",      "id": "VdeK_VsG9U0",      "contentDetails": {        "duration": "PT3M56S",        "dimension": "2d",        "definition": "hd",        "caption": "true",        "licensedContent": false,        "contentRating": {},        "projection": "rectangular"      }    }  ],  "pageInfo": {    "totalResults": 1,    "resultsPerPage": 1  }}
+
+title	: 이하이 - 홀로 [유희열의 스케치북/You Heeyeol’s Sketchbook] 20200724
+url		: https://www.youtube.com/watch?v=rkjZI9Iay8Y
+videoID	: rkjZI9Iay8Y
+image	: https://i.ytimg.com/vi/rkjZI9Iay8Y/maxresdefault.jpg
+{  "kind": "youtube#videoListResponse",  "etag": "yERPgXcVoMGdgGAolszeObwZaVs",  "items": [    {      "kind": "youtube#video",      "etag": "ZC0m_r-H3NGdg5OofflVH5Mz5Q4",      "id": "rkjZI9Iay8Y",      "contentDetails": {        "duration": "PT3M5S",        "dimension": "2d",        "definition": "hd",        "caption": "false",        "licensedContent": true,        "contentRating": {},        "projection": "rectangular"      }    }  ],  "pageInfo": {    "totalResults": 1,    "resultsPerPage": 1  }}
+
+title	: &#39;최초 공개&#39; 독보적 보이스 &#39;이하이&#39;의 &#39;홀로&#39; 무대
+url		: https://www.youtube.com/watch?v=26h7SMahPnk
+videoID	: 26h7SMahPnk
+image	: https://i.ytimg.com/vi/26h7SMahPnk/maxresdefault.jpg
+{  "kind": "youtube#videoListResponse",  "etag": "ssE5RHjIZ44uhmZBBjkVISVPzeM",  "items": [    {      "kind": "youtube#video",      "etag": "5Zd4tJNCa4MLV_sdXZRGYDnK2ms",      "id": "26h7SMahPnk",      "contentDetails": {        "duration": "PT3M11S",        "dimension": "2d",        "definition": "hd",        "caption": "false",        "licensedContent": true,        "contentRating": {},        "projection": "rectangular"      }    }  ],  "pageInfo": {    "totalResults": 1,    "resultsPerPage": 1  }}
+
+
+Process finished with exit code 0
