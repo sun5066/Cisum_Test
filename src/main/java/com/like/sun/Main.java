@@ -71,13 +71,25 @@ public class Main {
     private static void getDuration(String stringJson) {
         JSONParser jsonParser = new JSONParser();
         Object object = null;
-        try {
+        try {  //items > contentDetails > duration
             object = jsonParser.parse(stringJson);
 
             JSONObject jsonObject = (JSONObject) object;
             JSONArray jsonArray = (JSONArray) jsonObject.get("items");
+            JSONObject tempObject = null;
+            for (int i = 0; i < jsonArray.size(); i++) {
+                jsonObject = (JSONObject) jsonArray.get(i);
+                tempObject = (JSONObject) jsonObject.get("contentDetails");
+                System.out.println(
+                        tempObject.get("duration")
+                        .toString()
+                        .replace("PT", "")
+                        .replace("H", "시간")
+                        .replace("M", "분")
+                        .replace("S", "초")
+                );
+            }
 
-            System.out.println(jsonArray);
         } catch (ParseException e) {
             System.out.println("JSON 형변환 중 예외발생! JSON 형식이 아닌것같습니다.");
         }
@@ -92,7 +104,7 @@ public class Main {
             System.out.println(String.format("url\t\t: %s", ytVO.getUrl()));
             System.out.println(String.format("videoID\t: %s", ytVO.getVideoId()));
             System.out.println(String.format("image\t: https://i.ytimg.com/vi/%s/maxresdefault.jpg", ytVO.getVideoId()));
-            System.out.println(video(ytVO.getVideoId()));
+            getDuration(video(ytVO.getVideoId()));
             System.out.println();
         }
         return true;

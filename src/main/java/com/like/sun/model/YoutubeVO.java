@@ -4,6 +4,7 @@ public class YoutubeVO {
     private String videoId;
     private String title;
     private String url;
+    private String time;
 
     public String getVideoId() {
         return videoId;
@@ -27,5 +28,13 @@ public class YoutubeVO {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }
