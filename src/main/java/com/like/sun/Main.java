@@ -19,8 +19,10 @@ import java.util.Scanner;
 
 public class Main {
 
+    private static String apiKey = "AIzaSyAlDuYSZyqDcJGGZvjbXxgv21_0pGrnKYE";
+
     public static void main(String[] args) throws IOException {
-        Scanner scanner = new Scanner(System.in);
+        //Scanner scanner = new Scanner(System.in);
 
         String searchJson = "";
         try {
@@ -50,7 +52,7 @@ public class Main {
             JSONObject tempObject = null;
             YoutubeVO youtubeVO = null;
 
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 1; i++) {
                 youtubeVO = new YoutubeVO();
                 tempObject = (JSONObject) jsonArray.get(i);
                 jsonObject = (JSONObject) tempObject.get("snippet");
@@ -59,52 +61,55 @@ public class Main {
                 jsonObject = (JSONObject) tempObject.get("id");
                 youtubeVO.setVideoId(jsonObject.get("videoId").toString());
                 youtubeVO.setUrl(String.format("https://www.youtube.com/watch?v=%s", youtubeVO.getVideoId()));
+                youtubeVO.setTime(getDuration(video(youtubeVO.getVideoId())));
+
                 youtubeList.add(youtubeVO);
             }
             return youtubeList;
+        } catch (ParseException e) {
+            System.out.println("JSON 형변환 중 예외발생! JSON 형식이 아닌것같습니다.");
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+        return null;
+    }
+
+    private static String getDuration(String stringJson) {
+        JSONParser jsonParser = new JSONParser();
+        Object object = null;
+        try {
+            object = jsonParser.parse(stringJson);
+            JSONObject jsonObject = (JSONObject) object;
+            JSONArray jsonArray = (JSONArray) jsonObject.get("items");
+            JSONObject tempObject = null;
+
+            for (int i = 0; i < jsonArray.size(); i++) {
+                jsonObject = (JSONObject) jsonArray.get(i);
+                tempObject = (JSONObject) jsonObject.get("contentDetails");
+                System.out.println(tempObject.get("duration").toString());
+                return tempObject.get("duration").toString()
+                        .replace("PT", "")
+                        .replace("H", ":")
+                        .replace("M", ":")
+                        .replace("S", "");
+            }
         } catch (ParseException e) {
             System.out.println("JSON 형변환 중 예외발생! JSON 형식이 아닌것같습니다.");
         }
         return null;
     }
 
-    private static void getDuration(String stringJson) {
-        JSONParser jsonParser = new JSONParser();
-        Object object = null;
-        try {  //items > contentDetails > duration
-            object = jsonParser.parse(stringJson);
-
-            JSONObject jsonObject = (JSONObject) object;
-            JSONArray jsonArray = (JSONArray) jsonObject.get("items");
-            JSONObject tempObject = null;
-            for (int i = 0; i < jsonArray.size(); i++) {
-                jsonObject = (JSONObject) jsonArray.get(i);
-                tempObject = (JSONObject) jsonObject.get("contentDetails");
-                System.out.println(
-                        tempObject.get("duration")
-                        .toString()
-                        .replace("PT", "")
-                        .replace("H", "시간")
-                        .replace("M", "분")
-                        .replace("S", "초")
-                );
-            }
-
-        } catch (ParseException e) {
-            System.out.println("JSON 형변환 중 예외발생! JSON 형식이 아닌것같습니다.");
-        }
-    }
-
     private static boolean youtubeList(List<YoutubeVO> youtubeList) throws IOException {
         if (youtubeList == null) {
             return false;
         }
+
         for (YoutubeVO ytVO : youtubeList) {
             System.out.println(String.format("title\t: %s", ytVO.getTitle()));
             System.out.println(String.format("url\t\t: %s", ytVO.getUrl()));
             System.out.println(String.format("videoID\t: %s", ytVO.getVideoId()));
             System.out.println(String.format("image\t: https://i.ytimg.com/vi/%s/maxresdefault.jpg", ytVO.getVideoId()));
-            getDuration(video(ytVO.getVideoId()));
+            System.out.println(String.format("time\t: %s", ytVO.getTime()));
             System.out.println();
         }
         return true;
@@ -112,23 +117,23 @@ public class Main {
 
     private static String search(String search) throws IOException {
         String apiurl = "https://www.googleapis.com/youtube/v3/search";
-        apiurl += "?key=AIzaSyAGWOYDPwcoSSkC7ck2eLZNulFRHLx_VMo";
+        apiurl += "?key=" + apiKey;
         apiurl += "&part=snippet&type=video&maxResults=20&videoEmbeddable=true";
         apiurl += "&q=" + URLEncoder.encode(search, "UTF-8");
 
-        return getString(apiurl);
+        return getStringJson(apiurl);
     }
 
     private static String video(String id) throws IOException {
         String apiurl = "https://www.googleapis.com/youtube/v3/videos";
         apiurl += "?id=" + id;
         apiurl += "&part=contentDetails";
-        apiurl += "&key=AIzaSyAGWOYDPwcoSSkC7ck2eLZNulFRHLx_VMo";
+        apiurl += "&key=" + apiKey;
 
-        return getString(apiurl);
+        return getStringJson(apiurl);
     }
 
-    private static String getString(String apiurl) throws IOException {
+    private static String getStringJson(String apiurl) throws IOException {
         URL url = new URL(apiurl);
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
