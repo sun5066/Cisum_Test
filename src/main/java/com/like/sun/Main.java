@@ -52,7 +52,7 @@ public class Main {
             JSONObject tempObject = null;
             YoutubeVO youtubeVO = null;
 
-            for (int i = 0; i < 1; i++) {
+            for (int i = 0; i < 3; i++) {
                 youtubeVO = new YoutubeVO();
                 tempObject = (JSONObject) jsonArray.get(i);
                 jsonObject = (JSONObject) tempObject.get("snippet");
@@ -86,12 +86,11 @@ public class Main {
             for (int i = 0; i < jsonArray.size(); i++) {
                 jsonObject = (JSONObject) jsonArray.get(i);
                 tempObject = (JSONObject) jsonObject.get("contentDetails");
-                System.out.println(tempObject.get("duration").toString());
                 return tempObject.get("duration").toString()
                         .replace("PT", "")
-                        .replace("H", ":")
-                        .replace("M", ":")
-                        .replace("S", "");
+                        .replace("H", "시간 ")
+                        .replace("M", "분 ")
+                        .replace("S", "초");
             }
         } catch (ParseException e) {
             System.out.println("JSON 형변환 중 예외발생! JSON 형식이 아닌것같습니다.");
