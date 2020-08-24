@@ -52,7 +52,7 @@ public class Main {
             JSONObject tempObject = null;
             YoutubeVO youtubeVO = null;
 
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 1; i++) {
                 youtubeVO = new YoutubeVO();
                 tempObject = (JSONObject) jsonArray.get(i);
                 jsonObject = (JSONObject) tempObject.get("snippet");
